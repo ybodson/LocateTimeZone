@@ -12,7 +12,7 @@ import CoreLocation
 
 class TimeZoneParser {
 
-    typealias TimeZones = [String: (latitude: Double, longitude: Double)]
+    typealias TimeZones = [String: CLLocationCoordinate2D]
 
     enum ParseError: ErrorType {
         case FormatError
@@ -56,15 +56,15 @@ private extension TimeZoneParser {
         return value! * sign
     }
 
-    class func location(iso6709: String) throws -> (latitude: Double, longitude: Double) {
+    class func location(iso6709: String) throws -> CLLocationCoordinate2D {
         if iso6709.characters.count == 11 {
             let latitude = signedCoordinate(iso6709, location: 0, length: 5) / 100.0
             let longitude = signedCoordinate(iso6709, location: 5, length: 6) / 100.0
-            return (latitude: latitude, longitude: longitude)
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         } else if iso6709.characters.count == 15 {
             let latitude = signedCoordinate(iso6709, location: 0, length: 7) / 10000.0
             let longitude = signedCoordinate(iso6709, location: 7, length: 8) / 10000.0
-            return (latitude: latitude, longitude: longitude)
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         } else {
             throw ParseError.FormatError
         }

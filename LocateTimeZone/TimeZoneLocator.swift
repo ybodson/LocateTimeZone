@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
 
-public class TimeZoneLocator {
+public class TimeZoneLocator: NSObject {
 
     private var zones: TimeZoneParser.TimeZones?
 
-    public init() {
+    public override init() {
         if let bundle = NSBundle(identifier: "com.frogmojo.LocateTimeZone") {
             if let path = bundle.pathForResource("zone", ofType: "tab") {
                 let parser = TimeZoneParser(filePath: path)
@@ -21,7 +22,7 @@ public class TimeZoneLocator {
         }
     }
 
-    public func locationForZone(zoneID: String) -> (latitude: Double, longitude: Double)? {
+    public func locationForZone(zoneID: String) -> CLLocationCoordinate2D? {
         return zones?[zoneID]
     }
 }

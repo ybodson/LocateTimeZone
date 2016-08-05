@@ -35,7 +35,7 @@ class LocateTimeZoneTests: XCTestCase {
         let locator = TimeZoneLocator()
         for zone in NSTimeZone.knownTimeZoneNames() {
             if let coord = locator.locationForZone(zone) {
-                //print(zone, coord)
+                print(zone, coord)
             } else {
                 print(zone, "NOT FOUND")
             }
