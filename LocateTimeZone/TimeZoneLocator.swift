@@ -22,7 +22,7 @@ public class TimeZoneLocator: NSObject {
         }
     }
 
-    public func locationForZone(zoneID: String) -> CLLocationCoordinate2D? {
-        return zones?[zoneID]
+    public func locationForZone(zoneID: String) -> CLLocationCoordinate2D {
+        return zones?[zoneID] ?? CLLocationCoordinate2D()
     }
 }

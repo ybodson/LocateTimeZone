@@ -53,7 +53,7 @@ private extension TimeZoneParser {
         let s = string as NSString
         let sign = (s.substringWithRange(NSRange(location: location, length: 1)) == "+") ? 1.0 : -1.0
         let value = Double(s.substringWithRange(NSRange(location: location + 1, length: length - 1)))
-        return value! * sign
+        return sign * (value ?? 0)
     }
 
     class func location(iso6709: String) throws -> CLLocationCoordinate2D {
