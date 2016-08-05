@@ -20,17 +20,26 @@ class LocateTimeZoneTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+
+    func testTimeZoneParser() {
+        if let bundle = NSBundle(identifier: "com.frogmojo.LocateTimeZone") {
+            if let path = bundle.pathForResource("zone", ofType: "tab") {
+                let parser = TimeZoneParser(filePath: path)
+                let zones = parser.parseData()
+                XCTAssertNotNil(zones)
+            }
         }
     }
-    
+
+    func testTimeZoneLocator() {
+        let locator = TimeZoneLocator()
+        for zone in NSTimeZone.knownTimeZoneNames() {
+            if let coord = locator.locationForZone(zone) {
+                //print(zone, coord)
+            } else {
+                print(zone, "NOT FOUND")
+            }
+        }
+    }
+
 }

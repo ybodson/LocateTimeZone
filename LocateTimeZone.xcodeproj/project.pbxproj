@@ -10,6 +10,14 @@
 		AA52E8051D540B9700F32F8F /* LocateTimeZone.h in Headers */ = {isa = PBXBuildFile; fileRef = AA52E8041D540B9700F32F8F /* LocateTimeZone.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA52E80C1D540B9700F32F8F /* LocateTimeZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA52E8011D540B9700F32F8F /* LocateTimeZone.framework */; };
 		AA52E8111D540B9700F32F8F /* LocateTimeZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52E8101D540B9700F32F8F /* LocateTimeZoneTests.swift */; };
+		AA52E81C1D540C1500F32F8F /* zone1970.tab in Resources */ = {isa = PBXBuildFile; fileRef = AA52E81B1D540C1500F32F8F /* zone1970.tab */; };
+		AA52E81D1D540C1500F32F8F /* zone1970.tab in Resources */ = {isa = PBXBuildFile; fileRef = AA52E81B1D540C1500F32F8F /* zone1970.tab */; };
+		AA52E8251D540E6900F32F8F /* TimeZoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52E8241D540E6900F32F8F /* TimeZoneParser.swift */; };
+		AA52E8261D540E6900F32F8F /* TimeZoneParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52E8241D540E6900F32F8F /* TimeZoneParser.swift */; };
+		AA52E8281D54278F00F32F8F /* TimeZoneLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52E8271D54278F00F32F8F /* TimeZoneLocator.swift */; };
+		AA52E8291D5428AD00F32F8F /* TimeZoneLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA52E8271D54278F00F32F8F /* TimeZoneLocator.swift */; };
+		AA52E82B1D542B0700F32F8F /* zone.tab in Resources */ = {isa = PBXBuildFile; fileRef = AA52E82A1D542B0700F32F8F /* zone.tab */; };
+		AA52E82C1D542B0700F32F8F /* zone.tab in Resources */ = {isa = PBXBuildFile; fileRef = AA52E82A1D542B0700F32F8F /* zone.tab */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,10 @@
 		AA52E80B1D540B9700F32F8F /* LocateTimeZoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocateTimeZoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA52E8101D540B9700F32F8F /* LocateTimeZoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateTimeZoneTests.swift; sourceTree = "<group>"; };
 		AA52E8121D540B9700F32F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA52E81B1D540C1500F32F8F /* zone1970.tab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zone1970.tab; sourceTree = "<group>"; };
+		AA52E8241D540E6900F32F8F /* TimeZoneParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZoneParser.swift; sourceTree = "<group>"; };
+		AA52E8271D54278F00F32F8F /* TimeZoneLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZoneLocator.swift; sourceTree = "<group>"; };
+		AA52E82A1D542B0700F32F8F /* zone.tab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zone.tab; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,10 @@
 			children = (
 				AA52E8041D540B9700F32F8F /* LocateTimeZone.h */,
 				AA52E8061D540B9700F32F8F /* Info.plist */,
+				AA52E81B1D540C1500F32F8F /* zone1970.tab */,
+				AA52E82A1D542B0700F32F8F /* zone.tab */,
+				AA52E8241D540E6900F32F8F /* TimeZoneParser.swift */,
+				AA52E8271D54278F00F32F8F /* TimeZoneLocator.swift */,
 			);
 			path = LocateTimeZone;
 			sourceTree = "<group>";
@@ -177,6 +193,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA52E81C1D540C1500F32F8F /* zone1970.tab in Resources */,
+				AA52E82B1D542B0700F32F8F /* zone.tab in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +202,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA52E81D1D540C1500F32F8F /* zone1970.tab in Resources */,
+				AA52E82C1D542B0700F32F8F /* zone.tab in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA52E8281D54278F00F32F8F /* TimeZoneLocator.swift in Sources */,
+				AA52E8251D540E6900F32F8F /* TimeZoneParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +224,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA52E8111D540B9700F32F8F /* LocateTimeZoneTests.swift in Sources */,
+				AA52E8261D540E6900F32F8F /* TimeZoneParser.swift in Sources */,
+				AA52E8291D5428AD00F32F8F /* TimeZoneLocator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -297,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,6 +334,7 @@
 		AA52E8161D540B9700F32F8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +345,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.frogmojo.LocateTimeZone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AA52E8171D540B9700F32F8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -378,6 +405,7 @@
 				AA52E8171D540B9700F32F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA52E8181D540B9700F32F8F /* Build configuration list for PBXNativeTarget "LocateTimeZoneTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +414,7 @@
 				AA52E81A1D540B9700F32F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
