@@ -25,19 +25,21 @@ class TimeZoneParser {
     }
 
     func parseData() -> TimeZones {
+        return TimeZoneParser.parseFile(filePath)
+    }
+}
+
+
+private extension TimeZoneParser {
+
+    class func parseFile(filePath: String) -> TimeZones {
         var zoneInfos = TimeZones()
         do {
             let data = try String(contentsOfFile: filePath)
             let lines = data.componentsSeparatedByString("\n")
             for line in lines {
-                if line.hasPrefix("#") { continue }
-                let lineFields = line.componentsSeparatedByString("\t")
-                if lineFields.count < 3 { continue }
-                do {
-                    let location = try TimeZoneParser.location(lineFields[1])
-                    zoneInfos[lineFields[2]] = location
-                } catch {
-                    print(error)
+                if let zone = TimeZoneParser.parseLine(line) {
+                    zoneInfos[zone.name] = zone.coordinates
                 }
             }
         } catch {
@@ -45,9 +47,19 @@ class TimeZoneParser {
         }
         return zoneInfos
     }
-}
 
-private extension TimeZoneParser {
+    class func parseLine(line: String) -> (name: String, coordinates: CLLocationCoordinate2D)? {
+        if line.hasPrefix("#") { return nil }
+        let lineFields = line.componentsSeparatedByString("\t")
+        if lineFields.count < 3 { return nil }
+        do {
+            let coordinates = try location(from: lineFields[1])
+            return (lineFields[2], coordinates)
+        } catch {
+            print(error)
+            return nil
+        }
+    }
 
     class func signedCoordinate(string: String, location: Int, length: Int) -> Double {
         let s = string as NSString
@@ -56,7 +68,7 @@ private extension TimeZoneParser {
         return sign * (value ?? 0)
     }
 
-    class func location(iso6709: String) throws -> CLLocationCoordinate2D {
+    class func location(from iso6709: String) throws -> CLLocationCoordinate2D {
         if iso6709.characters.count == 11 {
             let latitude = signedCoordinate(iso6709, location: 0, length: 5) / 100.0
             let longitude = signedCoordinate(iso6709, location: 5, length: 6) / 100.0

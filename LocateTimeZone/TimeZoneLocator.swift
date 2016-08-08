@@ -9,20 +9,32 @@
 import Foundation
 import CoreLocation
 
+
+private let bundleID = "com.frogmojo.LocateTimeZone"
+private let zonesFilename = "zone"
+
+
 public class TimeZoneLocator: NSObject {
 
     private var zones: TimeZoneParser.TimeZones?
 
     public override init() {
-        if let bundle = NSBundle(identifier: "com.frogmojo.LocateTimeZone") {
-            if let path = bundle.pathForResource("zone", ofType: "tab") {
-                let parser = TimeZoneParser(filePath: path)
-                zones = parser.parseData()
-            }
-        }
+        super.init()
+        loadTimeZonesFromBundle(bundleID, filename: zonesFilename)
     }
 
     public func locationForZone(zoneID: String) -> CLLocationCoordinate2D {
         return zones?[zoneID] ?? CLLocationCoordinate2D()
+    }
+}
+
+
+private extension TimeZoneLocator {
+
+    func loadTimeZonesFromBundle(bundleID: String, filename: String) {
+        if let bundle = NSBundle(identifier: bundleID), path = bundle.pathForResource(filename, ofType: "tab") {
+            let parser = TimeZoneParser(filePath: path)
+            zones = parser.parseData()
+        }
     }
 }
